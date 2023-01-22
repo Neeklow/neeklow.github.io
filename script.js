@@ -1,36 +1,58 @@
 
 window.onload=timedOutNameChange;
-
+let wordIterator;
 
 function timedOutNameChange(){
   setTimeout(randomizeName,2000);
-  // setInterval(randomizeName,10);
+  
 }
 
 
 function randomizeName(){
   let name = document.getElementById('titleName');
-  console.log(name);
-
-
-  string = replaceCharacter("Neeklo");
-  name.innerHTML =string;
-
-
-// setInterval(randomizeName,10);
-
+  
+  name.innerHTML=randomz(name);
+wordIterator = setInterval(randomizeName,50);
 
 }
 
 
 
-function iterateUntilTargetCharacter(targetString){
+
+function randomz(elementToRandomize){
+
+  let oldStr = elementToRandomize.innerHTML;
+  let str = iterateUntilTargetCharacter(oldStr,"Niccoló Fioritti");
+
+  return str;
+}
+
+
+function iterateUntilTargetCharacter(currentString,targetString){
+
+  
+  console.log("ITER");
+    if(currentString == targetString){
+      clearInterval(wordIterator);
+    }
   let arrayLenght = targetString.length;
+  arr=[];
     for(let i=0; i< arrayLenght; i++){
       
+      if(currentString[i]!=targetString[i]){
+        let isCapital = (targetString.charAt(i) == targetString.charAt(i).toUpperCase());
+        arr.push(getRandomLetter(isCapital));
+      }else{
 
+        arr.push(currentString[i]);
+      }
 
+    
     }
+
+
+    let string = arr.join("");
+    return string;
 }
 
 
@@ -64,8 +86,17 @@ let letter = 0;
   else{
      letter =String.fromCharCode(97+Math.floor(Math.random() * 26));
   }
-  
- 
+
+
+  let p = Math.random();
+  if(p<0.1){
+    letter = "ó"
+  }
+  if(p>0.66){
+
+    letter = " ";
+  }
+
   return letter;
 }
 
