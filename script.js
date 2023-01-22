@@ -2,17 +2,33 @@
 window.onload=timedOutNameChange;
 let wordIterator;
 
+const targetNames = ["Neeklo", "Niccoló Fioritti", "Nico"]
+let targetNameIndex = 1;
+
+
 function timedOutNameChange(){
-  setTimeout(randomizeName,2000);
-  
+  setTimeout(()=>{ wordIterator = setInterval((randomizeName),10);},2000);
+
 }
 
 
+
+
 function randomizeName(){
+
+  console.log("RANDOMSZ");
   let name = document.getElementById('titleName');
   
+  if( name.innerHTML === targetNames[targetNameIndex]){
+    console.log("ASD");
+    clearInterval(wordIterator);
+    // targetNameIndex= (targetNameIndex+1)%3;
+    // timedOutNameChange();
+  }
+  
+  
   name.innerHTML=randomz(name);
-wordIterator = setInterval(randomizeName,50);
+ 
 
 }
 
@@ -21,8 +37,10 @@ wordIterator = setInterval(randomizeName,50);
 
 function randomz(elementToRandomize){
 
+ 
   let oldStr = elementToRandomize.innerHTML;
-  let str = iterateUntilTargetCharacter(oldStr,"Niccoló Fioritti");
+  let name = targetNames[targetNameIndex];
+  let str = iterateUntilTargetCharacter(oldStr,name);
 
   return str;
 }
@@ -30,11 +48,8 @@ function randomz(elementToRandomize){
 
 function iterateUntilTargetCharacter(currentString,targetString){
 
-  
-  console.log("ITER");
-    if(currentString == targetString){
-      clearInterval(wordIterator);
-    }
+
+
   let arrayLenght = targetString.length;
   arr=[];
     for(let i=0; i< arrayLenght; i++){
@@ -60,7 +75,14 @@ function iterateUntilTargetCharacter(currentString,targetString){
 function replaceCharacter(targetString){
   let arrayLenght = targetString.length;
   console.log(arrayLenght);
+    if(currentString == targetString){
+      
 
+      // clearInterval(wordIterator);
+      // timedOutNameChange();
+      // return;
+  
+    }
   let arr =[];
   for(let i=0; i< arrayLenght; i++){
 
