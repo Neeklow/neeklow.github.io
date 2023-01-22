@@ -26,12 +26,18 @@ body{
 	justify-self: center;
 	display: inline;
 	float: right;
+	
 }
 .pageButton{
-	width: 50px;
-	height: 20px;
+	width: 200px;
+	height: 100px;
+	background-color: white;
 }
 
-.bio{
-
+.overthinkPageButton{
+width: 200px;
+	height: 100%;
+	object-fit: contain;
+	filter: invert();
 }
+
