@@ -2,9 +2,12 @@
 
 
 @import url(//fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap);
-
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap'); */
 p {
-	font-family: 'Poppins';
+	
+		/* font-family: 'Ubuntu Mono', sans-serif; */
+		font-family: 'Poppins', sans-serif;
+		
 }
 
 html{
@@ -15,20 +18,24 @@ body{
 			/* background: radial-gradient(circle at 10% 20%, rgb(87, 108, 117) 0%, rgb(37, 50, 55) 100.2%); */
 			/* padding: 50px; */
 			height: 100%;
-		
+			
 }
 
 
 .mainDiv{
 	/* padding:-5px; */
 	position: relative;
-	height: 100%;
-	width: 100%;
+	height: 50%;
+	width: 80%;
+	top: 33%;
+	left: 10%;
 }
 
 .subTitle{
 	position:absolute;
-	left: 200px;
+	left: 0px;
+	font-size: 30px;
+	color: gray;
 	
 }
 
@@ -36,8 +43,9 @@ body{
 	padding-bottom: 25px;
 }
 .titleName{
+	/* font-family: 'Ubuntu Mono'; */
 	font-family: 'Poppins';
-	font-size: 50px;
+	font-size: 100px;
 	font-style: Light 300;
 	display: inline;
 	float:left;
@@ -58,7 +66,7 @@ body{
 width: 200px;
 	height: 100%;
 	object-fit: contain;
-	filter: invert();
+	filter: invert(41%) sepia(4%) saturate(13%) hue-rotate(332deg) brightness(93%) contrast(85%);
 }
 
 
@@ -67,8 +75,12 @@ width: 200px;
 .bio{
 	padding-top: 50px;
 	padding-bottom: 10px;
+	font-size: 25px;
 }
 .curriculumVitae{
+	/* font-family: 'Ubuntu'; */
+
+	background-color:#F7B733;
 	font-family: 'Poppins';
 	text-align: center;
 	padding-bottom: 10px;
@@ -87,15 +99,15 @@ width: 200px;
 
 
 .leftColumn{
-	
+
 	padding-right: 10px;
 	width: 45%;
-		height: 20%;
+		height: 100%;
 	
 	/* border-style: double;
 		border-color: blueviolet; */
 
-
+	
 		text-align: right;
 		align-content: center;
 		justify-content: right;
@@ -125,6 +137,7 @@ width: 200px;
 	display: inline-block;
 	text-align: center;
 
+	/* font-family: 'Ubuntu'; */
 	font-family: 'Poppins';
 }
 
@@ -135,6 +148,7 @@ width: 200px;
 	justify-content: center;
 	display: inline-block;
 
+	/* font-family: 'Ubuntu'; */
 	font-family: 'Poppins';
 	font-size: small;
 }
