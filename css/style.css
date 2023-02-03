@@ -12,28 +12,41 @@ p {
 
 html{
 		height: 100%;
+		
+}
+
+
+::-webkit-scrollbar {
+	width: 0px;
+	background: transparent;
+	/* make scrollbar transparent */
 }
 body{
 
 			/* background: radial-gradient(circle at 10% 20%, rgb(87, 108, 117) 0%, rgb(37, 50, 55) 100.2%); */
 			/* padding: 50px; */
 			height: 100%;
-			
+				padding: 0%;
+					margin: 0%;
+					/* overflow-y: hidden; */
 }
 
 
 .mainDiv{
 	/* padding:-5px; */
+	padding: 0%;
+	margin: 0%;
 	position: relative;
 	height: 50%;
-	width: 80%;
+	width: 100%;
 	top: 33%;
-	left: 10%;
+
 }
 
 .subTitle{
 	position:absolute;
-	left: 0px;
+		padding-left: 5%;
+			padding-right: 5%;
 	font-size: 30px;
 	color: gray;
 	
@@ -41,6 +54,8 @@ body{
 
 .header{
 	padding-bottom: 25px;
+	padding-left: 5%;
+	padding-right: 5%;
 }
 .titleName{
 	/* font-family: 'Ubuntu Mono'; */
@@ -76,6 +91,8 @@ width: 200px;
 	padding-top: 50px;
 	padding-bottom: 10px;
 	font-size: 25px;
+		padding-left: 5%;
+			padding-right: 5%;
 }
 .curriculumVitae{
 	/* font-family: 'Ubuntu'; */
