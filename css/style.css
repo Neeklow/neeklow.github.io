@@ -120,7 +120,6 @@ body{
 
 		width: 100vw;
 		height: 100vh;
-
 		margin:0;
 		display: flex;
 		flex-direction: column;
@@ -129,26 +128,30 @@ body{
 }
 
 .cv{
+		height: 50vh;
 		display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+
 }
 
 .cvRow{
+	height: 50px;
 width:100vw;
 display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	row-gap: 10px;
 	column-gap: 50px;
+
 }
 .cvColumnL{
 
 	width: 40%;
 text-align: right;
-	justify-content: right;
+			justify-content: right;
+
 }
 
 .cvColumnR{
@@ -157,4 +160,22 @@ text-align: right;
 
 		text-align: left;
 			justify-content: left;
+}
+
+
+.publicationDiv{
+	height: 50px;
+		width: 100vw;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		column-gap: 50px;
+}
+
+.publication {
+
+	width: 40%;
+	text-align: center;
+
 }
