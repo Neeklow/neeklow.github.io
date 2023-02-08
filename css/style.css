@@ -136,22 +136,22 @@ body{
 		margin:0;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: space-evenly;
 		align-items: center;
 }
 
 .cv{
-		height: 50vh;
+		/* height: 50vh; */
 		display: flex;
 			flex-direction: column;
-			justify-content: center;
+			justify-content: space-around;
 			align-items: center;
 
 }
 
 .cvRow{
 	
-	height: 50px;
+	/* height: 50px; */
 width:100vw;
 display: flex;
 	flex-direction: row;
@@ -213,66 +213,41 @@ text-align: right;
 .projImageContainer{
 
 		position: relative;
-		width: 50vw;
+		width: 100vw;
 			height: 100vh;
 				display: flex;
 					flex-direction: column;
 					justify-content: space-evenly;
-					align-items: left;
-}
-.projectImage1{
-	/* position:absolute; */
-	/* left: 100px; */
-	top: 100px;
-		display: block;
-			max-width: 600px;
-			width: auto;
-			height: auto;
-				margin: -150px;
-}
-.projectImage2{
-	align-self: flex-end;
-	/* position: absolute; */
-		/* left: 250px;	 */
-		/* top:400px; */
-	display: block;
-	max-width: 600px;
-	width: auto;
-	height: auto;
-		margin: -150px;
-}
-.projectImage3 {
-	/* position: absolute; */
-			/* left: 350px; */
-			/* top:700px; */
-			display: block;
-	max-width: 600px;
-	width: auto;
-	height: auto;
-		margin: -150px;
+					align-items: center;
 }
 
-.imageLink{
-display: block;
-	max-width: 600px;
+
+.imageBox{
+	display: flex;
+	/* display: block; */
+	max-width: 100vw;
 	width: auto;
 	height: auto;
-	margin: -150px;
-
+	align-items: center;
 }
 
-.imageLink2 {
-	align-self: flex-end;
-	display: block;
-	max-width: 600px;
-	width: auto;
-	height: auto;
-	margin: -150px;
-}
+
 .projectImage{
-				display: block;
+				/* display: block; */
 					max-width: 600px;
 					width: auto;
 					height: auto;
 					/* margin: -150px; */
+					
+}
+
+
+.projectTitle{
+		transform: rotate(-90deg);
+			/* display: block; */
+ height:auto;
+	/* width: 50px; */
+white-space: nowrap;
+display: flex;
+align-items: space-between;
 }
