@@ -223,6 +223,7 @@ text-align: right;
 
 
 .imageBox{
+	position: relative;
 	display: flex;
 	/* display: block; */
 	/* max-width: auto; */
@@ -231,8 +232,15 @@ width: 100vw;
 	align-items: center;
 					overflow: hidden;
 					justify-content: center;
+		transition-property: all;
+		transition-duration: .5s;
+	}
+	.imageBox:hover{
+		/* transform: scale(1.5); */
+		height: 75vh;
+		z-index: 2;
+		transition: height 0.5;
 }
-
 
 .projectImage{
 				/* display: block; */
@@ -243,7 +251,27 @@ width: 100vw;
 						overflow: hidden;
 					
 }
+.projectImagedescription {
+	position: absolute;
+height: 100%;
+width: 100%;
+	background: rgba(255, 255, 255, 0.72);
+	color: #fff;
+	visibility: hidden;
+	opacity: 0;
+ color: black;
+	/* transition effect. not necessary */
+	transition: opacity .2s, visibility .2s;
 
+	text-align: center;
+	text-justify: center;
+
+}
+
+.imageBox:hover .projectImagedescription {
+	visibility: visible;
+	opacity: 1;
+}
 
 .projectTitle{
 		transform: rotate(-90deg);
