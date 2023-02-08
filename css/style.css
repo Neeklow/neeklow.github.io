@@ -253,4 +253,5 @@ width: 100vw;
 white-space: nowrap;
 display: flex;
 align-items: space-between;
+text-align: center;
 }
