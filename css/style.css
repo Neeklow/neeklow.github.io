@@ -225,19 +225,22 @@ text-align: right;
 .imageBox{
 	display: flex;
 	/* display: block; */
-	max-width: 100vw;
-	width: auto;
-	height: auto;
+	/* max-width: auto; */
+height: 30vh;
+width: 100vw;
 	align-items: center;
+					overflow: hidden;
+					justify-content: center;
 }
 
 
 .projectImage{
 				/* display: block; */
-					max-width: 600px;
-					width: auto;
-					height: auto;
+					width: 75vw;
+					/* width: auto;
+					height: auto; */
 					/* margin: -150px; */
+						overflow: hidden;
 					
 }
 
