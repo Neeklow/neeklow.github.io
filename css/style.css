@@ -31,9 +31,10 @@ html{
 }
 body{
 
+
 			/* background: radial-gradient(circle at 10% 20%, rgb(87, 108, 117) 0%, rgb(37, 50, 55) 100.2%); */
 			/* padding: 50px; */
-		
+
 			padding: 0;
 				margin: 0;
 					/* overflow-y: hidden; */
@@ -49,8 +50,14 @@ body{
 
 .btnClass{
 	height: 50px;
-	width:100px;
+	width:150px;
 	font-family: 'Poppins';
+	font-size: large;
+	 background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
 	
 }
 
@@ -117,6 +124,9 @@ body{
 	padding-left: 5%;
 	padding-right: 5%;
 }
+
+
+
 
 
 /* //////////////////// */
@@ -251,8 +261,28 @@ width: 100vw;
 						overflow: hidden;
 					
 }
+
+
+
+
+.projectImageContainer{
+	height: 100%;
+		width: 80%;
+	background-color: aqua;
+	background-image: url("https://theworkers.net/wp-content/uploads/2022/09/dPM_Tate_Draw2338_MM_FLAT.jpg");
+	background-position: ce;
+	background-size: 120%;
+		display: flex;
+		align-items: center;
+			justify-content: center;
+				text-align: center;
+					text-justify: center;
+}
+
+
 .projectImagedescription {
 	position: absolute;
+	display: flex;
 height: 100%;
 width: 100%;
 	background: rgba(255, 255, 255, 0.72);
@@ -263,10 +293,38 @@ width: 100%;
 	/* transition effect. not necessary */
 	transition: opacity .2s, visibility .2s;
 
-	text-align: center;
-	text-justify: center;
+align-items:center;
+justify-content: center;
+
 
 }
+
+
+.projectImagedescriptionText {
+
+	display: flex;
+	height: 100%;
+	width: 100%;
+	
+
+background: rgba(255, 255, 255, 0.72);
+	color: #fff;
+	visibility: hidden;
+	opacity: 0;
+	color: black;
+	/* transition effect. not necessary */
+	transition: opacity .2s, visibility .2s;
+
+ justify-content: center;
+ align-items: center;
+
+}
+
+.imageBox:hover .projectImagedescriptionText {
+	visibility: visible;
+	opacity: 1;
+}
+
 
 .imageBox:hover .projectImagedescription {
 	visibility: visible;

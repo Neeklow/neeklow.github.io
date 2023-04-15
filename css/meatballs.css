@@ -1,0 +1,75 @@
+.meatballContainer {
+  -webkit-filter: contrast(40);
+  background: white;
+  position: fixed;
+  width: 250px;
+  height: 150px;
+  z-index: 9;
+  padding: 10px 0px;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(-50%, -50%) scale(2);
+}
+
+
+.meatball_1 {
+  top: 35px;
+  left: 75px;
+  width: 100px;
+  height: 100px;
+  background: black;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -webkit-filter: blur(15px);
+  position: absolute;
+}
+
+.meatball_2 {
+  top: 35px;
+  left: 125px;
+  width: 100px;
+  height: 100px;
+  background: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-filter: blur(15px);
+  position: absolute;
+  -webkit-animation-duration: 5s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-name: pulse;
+    -webkit-animation-iteration-count: infinite;
+    top: 60px;
+}
+
+
+.filtered {
+  -webkit-filter: blur(15px);
+}
+
+
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: translateX(75px);
+  }
+    50% {
+      -webkit-transform: translateX(-100px);
+    }
+
+  100% {
+    -webkit-transform: translateX(50px);
+  }
+}
+
+@-webkit-keyframes pulse1 {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
