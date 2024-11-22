@@ -1,0 +1,195 @@
+/* Global reset for body and html */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  /* Prevents horizontal overflow */
+  overflow-y: auto;
+  /* Enables vertical scrolling */
+  box-sizing: border-box;
+}
+
+/* Full-screen background container (Fixed) */
+.backgroundContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  /* Behind everything */
+  pointer-events: none;
+  /* Prevent interaction */
+}
+
+/* Background image */
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/MainPortrait.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Background blur overlay */
+.blurOverlay {
+position: absolute;
+  /* Overlay sits on top of the hero section */
+  /* top: -10; */
+  left: -100px;
+  width: 110%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  background-image: url('./assets/MainPortrait.png');
+  /* background-image: url('./assets/MainPortrait.png'), linear-gradient(to right, rgb(0, 0, 0,1) 0%, rgb(0, 0, 0,0) 70%); */
+  /* Identical background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(35px);
+  /* Apply blur effect */
+  z-index: 1;
+  /* Ensure it appears behind the main content */
+  pointer-events: none;
+  /* Prevent interactions with the overlay */
+
+
+  /* Darkens from left to right */
+  background-size: cover;
+  background-blend-mode: darken;
+  /* Blend the dark gradient with the image */
+
+  /* Add transparency fade */
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+/* Main container (the body content) */
+main {
+  display: flex;
+  flex-direction: column;
+  scroll-snap-type: y mandatory;
+  /* Enables scroll snapping */
+  overflow-y: scroll;
+  /* Enables vertical scrolling */
+  height: 100vh;
+  /* Full viewport height */
+  width: 100%;
+  /* Ensure it fills the viewport */
+  justify-content: flex-start;
+  /* Align content to the left */
+  padding-left: 4vw;
+  /* Some space from the left edge */
+  position: relative;
+  /* Ensure sections sit above the background */
+}
+
+/* Sections take full height of viewport */
+section {
+  scroll-snap-align: center;
+  /* Ensures sections are centered */
+  min-height: 100vh;
+  /* Each section takes full viewport height */
+  width: 100vw;
+  /* Sections take half the width of the viewport */
+  padding: 20px;
+  position: relative;
+  /* Ensure sections are above the background */
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: center;
+  /* Centers the text inside each section */
+}
+
+/* Title and subtitle */
+.mainTitle {
+  position: relative;
+  z-index: 2;
+  /* Ensures content is above background */
+  display: flex;
+  flex-direction: column;
+  padding-left: 4vw;
+  align-items: flex-start;
+  text-align: center;
+}
+
+/* Footer Section */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.1rem;
+  color: #7D7D7D;
+  font-size: 15px;
+  z-index: 1000;
+}
+
+/* Header Buttons */
+.headerButtons {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.btnClass {
+  height: 50px;
+  width: 150px;
+  font-family: 'Poppins', sans-serif;
+  font-size: large;
+  background: none;
+  border: none;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  color: #7D7D7D;
+}
+
+.btnClass:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Title Styling */
+.titleName {
+  font-family: 'Poppins', sans-serif;
+  font-size: 100px;
+  font-weight: 300;
+  /* Lighter weight */
+  padding: 0;
+  margin: 0;
+  height: 105px;
+  line-height: 105px;
+  color: #015374;
+}
+
+/* Subtitle Styling */
+.subTitle {
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 30px;
+  color: #7D7D7D;
+}
+
+/* Add this to your CSS to highlight the active button */
+.btnClass.active {
+  background-color: rgba(255, 255, 255, 0.218);
+  /* Change to your preferred color */
+  color: white;
+  /* Change text color if needed */
+}
