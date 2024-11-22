@@ -29,7 +29,6 @@ body::-webkit-scrollbar {
   /* Hide scrollbar */
 }
 
-
 /* Full-screen background container (Fixed) */
 .backgroundContainer {
   position: fixed;
@@ -58,26 +57,59 @@ body::-webkit-scrollbar {
   background-repeat: no-repeat;
 }
 
-/* Background blur overlay */
 .blurOverlay {
   position: absolute;
-  left: -100px;
-  width: 110%;
-  height: 100%;
+  top: 0;
+  /* Start at the top */
+  left: 50%;
+  /* Center horizontally */
+  transform: translateX(-50%);
+  /* Ensure it's perfectly centered */
+  width: 120%;
+  /* Slightly larger than the viewport */
+  height: 120%;
+  /* Slightly larger to cover the whole viewport */
   background-image: url('./assets/MainPortrait.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   filter: blur(35px);
+  /* Apply blur effect */
   z-index: 1;
-  /* Ensure it appears behind the main content */
   pointer-events: none;
-  /* Prevent interactions with the overlay */
+  /* Prevent interactions */
   background-blend-mode: darken;
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-  max-width: 100vw;
-  /* Prevent horizontal overflow */
+    /* Initial mask */
+    transition: -webkit-mask-image 0.3s ease-out;
+    /* Smooth transition */
+  overflow: hidden;
+  /* Clip any overflow */
+}
+
+/* Add this to ensure the top is fully blurred */
+.blurOverlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  /* Ensure it starts at the top */
+  left: 50%;
+  /* Center horizontally */
+  transform: translateX(-50%);
+  /* Ensure it is centered */
+  width: 120%;
+  /* Ensure it overflows horizontally */
+  height: 120%;
+  /* Ensure it overflows vertically */
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(35px);
+  /* Apply the same blur */
+  z-index: -1;
+  /* Ensure it stays behind */
 }
 
 /* Main container (the body content) */
@@ -93,9 +125,10 @@ main {
   position: relative;
   box-sizing: border-box;
   /* Ensure padding is included in width calculation */
-    -ms-overflow-style: none;   /* Internet Explorer 10+ */
-      scrollbar-width: none;   /* Firefox */
-
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Sections take full height of viewport */
@@ -189,4 +222,74 @@ footer {
 .btnClass.active {
   background-color: rgba(255, 255, 255, 0.218);
   color: white;
+}
+
+/* Responsive Design: Adjustments for smaller screens */
+@media (max-width: 768px) {
+  /* For tablets and small screens */
+
+  .headerButtons {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  .btnClass {
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: medium;
+  }
+
+  .titleName {
+    font-size: 60px;
+    line-height: 70px;
+  }
+
+  .subTitle {
+    font-size: 20px;
+  }
+
+  section {
+    width: 100vw;
+    padding-left: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mainTitle {
+    padding-left: 2vw;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* For mobile screens */
+
+  .titleName {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .subTitle {
+    font-size: 18px;
+  }
+
+  .headerButtons {
+    padding: 0.5rem;
+  }
+
+  .btnClass {
+    width: 100%;
+    font-size: small;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+
+  .mainTitle {
+    padding-left: 2vw;
+    text-align: center;
+  }
 }
