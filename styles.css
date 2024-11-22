@@ -4,25 +4,45 @@ body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   overflow-x: hidden;
-  /* Prevents horizontal overflow */
-  overflow-y: auto;
-  /* Enables vertical scrolling */
+  /* Prevent horizontal overflow */
+  overflow-y: hidden;
+  /* Prevent vertical overflow (hide vertical scrollbar) */
   box-sizing: border-box;
+  /* Ensure padding doesn't affect width/height */
 }
+
+/* Hide scrollbar but still allow scrolling */
+body {
+  overflow-y: scroll;
+  /* Allow scrolling without showing scrollbar */
+  -ms-overflow-style: none;
+  /* For Internet Explorer and Edge */
+  scrollbar-width: none;
+  /* For Firefox */
+}
+
+/* Webkit browsers (Chrome, Safari, Opera) */
+body::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar */
+}
+
 
 /* Full-screen background container (Fixed) */
 .backgroundContainer {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: -2;
   /* Behind everything */
   pointer-events: none;
   /* Prevent interaction */
+  max-width: 100vw;
+  /* Prevent horizontal overflow */
 }
 
 /* Background image */
@@ -40,36 +60,24 @@ body {
 
 /* Background blur overlay */
 .blurOverlay {
-position: absolute;
-  /* Overlay sits on top of the hero section */
-  /* top: -10; */
+  position: absolute;
   left: -100px;
   width: 110%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   background-image: url('./assets/MainPortrait.png');
-  /* background-image: url('./assets/MainPortrait.png'), linear-gradient(to right, rgb(0, 0, 0,1) 0%, rgb(0, 0, 0,0) 70%); */
-  /* Identical background image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   filter: blur(35px);
-  /* Apply blur effect */
   z-index: 1;
   /* Ensure it appears behind the main content */
   pointer-events: none;
   /* Prevent interactions with the overlay */
-
-
-  /* Darkens from left to right */
-  background-size: cover;
   background-blend-mode: darken;
-  /* Blend the dark gradient with the image */
-
-  /* Add transparency fade */
-    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  max-width: 100vw;
+  /* Prevent horizontal overflow */
 }
 
 /* Main container (the body content) */
@@ -77,44 +85,36 @@ main {
   display: flex;
   flex-direction: column;
   scroll-snap-type: y mandatory;
-  /* Enables scroll snapping */
   overflow-y: scroll;
-  /* Enables vertical scrolling */
   height: 100vh;
-  /* Full viewport height */
-  width: 100%;
-  /* Ensure it fills the viewport */
+  width: 100vw;
   justify-content: flex-start;
-  /* Align content to the left */
   padding-left: 4vw;
-  /* Some space from the left edge */
   position: relative;
-  /* Ensure sections sit above the background */
+  box-sizing: border-box;
+  /* Ensure padding is included in width calculation */
+    -ms-overflow-style: none;   /* Internet Explorer 10+ */
+      scrollbar-width: none;   /* Firefox */
+
 }
 
 /* Sections take full height of viewport */
 section {
   scroll-snap-align: center;
-  /* Ensures sections are centered */
   min-height: 100vh;
-  /* Each section takes full viewport height */
-  width: 100vw;
-  /* Sections take half the width of the viewport */
-  padding: 20px;
+  width: 90vw;
+  padding: 0;
   position: relative;
-  /* Ensure sections are above the background */
   display: flex;
   justify-content: left;
   align-items: center;
   text-align: center;
-  /* Centers the text inside each section */
 }
 
 /* Title and subtitle */
 .mainTitle {
   position: relative;
   z-index: 2;
-  /* Ensures content is above background */
   display: flex;
   flex-direction: column;
   padding-left: 4vw;
@@ -168,7 +168,6 @@ footer {
   font-family: 'Poppins', sans-serif;
   font-size: 100px;
   font-weight: 300;
-  /* Lighter weight */
   padding: 0;
   margin: 0;
   height: 105px;
@@ -189,7 +188,5 @@ footer {
 /* Add this to your CSS to highlight the active button */
 .btnClass.active {
   background-color: rgba(255, 255, 255, 0.218);
-  /* Change to your preferred color */
   color: white;
-  /* Change text color if needed */
 }
