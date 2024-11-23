@@ -6,11 +6,15 @@
 
 /* Background image */
 .backgroundImage {
-  background-position: 75% 0%;
+  
+  background-position: 77% 0%;
+  background-size: 400% auto;
 }
 
 .blurOverlay {
-  background-position: 50% 0%;
+/* background-image: url('./assets/MainPortrait.png'), linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 50%); */
+  background-position: 30% 10vh ;
+
 }
 
 /* Main container (the body content) */
@@ -50,8 +54,10 @@ section {
 
 
 .titleName {
-  font-size: 60px;
+  font-size: 40px;
   line-height: 70px;
+  /* color: #255a6d; */
+  /* height: 20vh; */
 }
 
 .subTitle {
@@ -63,5 +69,6 @@ section {
   .mainTitle {
     padding-left: 2vw;
     text-align: center;
+    padding-top: calc(30vh);
   }
 }
