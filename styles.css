@@ -6,9 +6,8 @@ body {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
-  /* Prevent horizontal overflow */
   overflow-y: hidden;
-  /* Prevent vertical overflow (hide vertical scrollbar) */
+  /* Hide vertical overflow */
   box-sizing: border-box;
   /* Ensure padding doesn't affect width/height */
 }
@@ -29,7 +28,7 @@ body::-webkit-scrollbar {
   /* Hide scrollbar */
 }
 
-/* Full-screen background container (Fixed) */
+/* Full-screen background container */
 .backgroundContainer {
   position: fixed;
   top: 0;
@@ -40,8 +39,6 @@ body::-webkit-scrollbar {
   /* Behind everything */
   pointer-events: none;
   /* Prevent interaction */
-  max-width: 100vw;
-  /* Prevent horizontal overflow */
 }
 
 /* Background image */
@@ -52,8 +49,6 @@ body::-webkit-scrollbar {
   width: 100%;
   height: 100%;
   background-image: url('./assets/MainPortrait.png');
-    /* background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8)40%, rgba(0, 0, 0, 0)60%), url('./assets/MainPortrait.png'); */
-        /* background-image: radial-gradient(circle at 130vw 30vh, rgba(0, 0, 0, 0)40%, rgba(0, 0, 0, 1)50%), url('./assets/MainPortrait.png'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -62,56 +57,21 @@ body::-webkit-scrollbar {
 .blurOverlay {
   position: absolute;
   top: 0;
-  /* Start at the top */
   left: 50%;
-  /* Center horizontally */
   transform: translateX(-50%);
-  /* Ensure it's perfectly centered */
   width: 120%;
-  /* Slightly larger than the viewport */
   height: 120%;
-  /* Slightly larger to cover the whole viewport */
   background-image: url('./assets/MainPortrait.png');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   filter: blur(35px);
-  /* Apply blur effect */
   z-index: 1;
   pointer-events: none;
-  /* Prevent interactions */
   background-blend-mode: darken;
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    /* Initial mask */
-    transition: -webkit-mask-image 0.3s ease-out;
-    /* Smooth transition */
+  transition: -webkit-mask-image 0.3s ease-out;
   overflow: hidden;
-  /* Clip any overflow */
-}
-
-/* Add this to ensure the top is fully blurred */
-.blurOverlay::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  /* Ensure it starts at the top */
-  left: 50%;
-  /* Center horizontally */
-  transform: translateX(-50%);
-  /* Ensure it is centered */
-  width: 120%;
-  /* Ensure it overflows horizontally */
-  height: 120%;
-  /* Ensure it overflows vertically */
-  background-image: inherit;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(35px);
-  /* Apply the same blur */
-  z-index: -1;
-  /* Ensure it stays behind */
 }
 
 /* Main container (the body content) */
@@ -127,26 +87,24 @@ main {
   padding-left: 4vw;
   position: relative;
   box-sizing: border-box;
-  /* Ensure padding is included in width calculation */
   -ms-overflow-style: none;
-  /* Internet Explorer 10+ */
-  scrollbar-width: none;
-  /* Firefox */
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 /* Sections take full height of viewport */
 section {
   scroll-snap-align: center;
-  scroll-snap-stop: always; /* Ensure scrolling always snaps to the section */
+  scroll-snap-stop: always;
+  /* Ensure scrolling always snaps to the section */
   min-height: 100vh;
   width: 90vw;
   padding: 0;
-  position: relative;
   display: flex;
   justify-content: left;
   align-items: center;
   text-align: center;
-  
 }
 
 /* Title and subtitle */
@@ -167,7 +125,6 @@ footer {
   width: 100%;
   text-align: center;
   padding: 0.1rem;
-  /* color: #7D7D7D; */
   color: rgb(150, 159, 173);
   font-size: 15px;
   z-index: 1000;
@@ -180,6 +137,7 @@ footer {
   top: 0;
   height: 50px;
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   z-index: 1000;
@@ -193,7 +151,7 @@ footer {
   font-size: large;
   background: none;
   border: none;
-  margin: 0 0.5rem;
+  margin: 0;
   cursor: pointer;
   color: #7D7D7D;
 }
@@ -207,96 +165,21 @@ footer {
   font-family: 'Poppins', sans-serif;
   font-size: 100px;
   font-weight: 400;
-  padding: 0;
   margin: 0;
-  height: 105px;
-  line-height: 105px;
   color: #002331;
-  /* color: #000000; */
 }
 
 /* Subtitle Styling */
 .subTitle {
   font-family: 'Poppins', sans-serif;
-  padding: 0;
   margin: 0;
   font-weight: 400;
   font-size: 30px;
   color: rgb(150, 159, 173);
 }
 
-/* Add this to your CSS to highlight the active button */
+/* Active Button Style */
 .btnClass.active {
   background-color: rgba(255, 255, 255, 0.218);
   color: white;
-}
-
-/* Responsive Design: Adjustments for smaller screens */
-@media (max-width: 768px) {
-  /* For tablets and small screens */
-
-  .headerButtons {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
-  }
-
-  .btnClass {
-    width: 100%;
-    margin-bottom: 1rem;
-    font-size: medium;
-  }
-
-  .titleName {
-    font-size: 60px;
-    line-height: 70px;
-  }
-
-  .subTitle {
-    font-size: 20px;
-  }
-
-  section {
-    width: 100vw;
-    padding-left: 0;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .mainTitle {
-    padding-left: 2vw;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  /* For mobile screens */
-
-  .titleName {
-    font-size: 40px;
-    line-height: 50px;
-  }
-
-  .subTitle {
-    font-size: 18px;
-  }
-
-  .headerButtons {
-    padding: 0.5rem;
-  }
-
-  .btnClass {
-    width: 100%;
-    font-size: small;
-  }
-
-  footer {
-    font-size: 12px;
-  }
-
-  .mainTitle {
-    padding-left: 2vw;
-    text-align: center;
-  }
 }

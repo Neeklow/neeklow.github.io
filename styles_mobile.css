@@ -1,0 +1,67 @@
+/* Global reset for body and html */
+
+@media (max-width: 768px){
+
+
+
+/* Background image */
+.backgroundImage {
+  background-position: 75% 0%;
+}
+
+.blurOverlay {
+  background-position: 50% 0%;
+}
+
+/* Main container (the body content) */
+
+/* Sections take full height of viewport */
+section {
+  position: relative;
+}
+
+/* Title and subtitle */
+.mainTitle {
+
+}
+
+
+
+/* Header Buttons */
+
+.headerButtons {
+  left: 50%;
+  transform: translateX(-50%);  /* Set the height of the header */
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: none;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+
+/* Button Styles */
+.btnClass {
+  width: 25vw;
+  font-size: small;
+  text-align: center;
+  /* display: inline-block; */  /* Keep buttons inline */
+}
+
+
+.titleName {
+  font-size: 60px;
+  line-height: 70px;
+}
+
+.subTitle {
+  font-size: 20px;
+}
+
+
+
+  .mainTitle {
+    padding-left: 2vw;
+    text-align: center;
+  }
+}
