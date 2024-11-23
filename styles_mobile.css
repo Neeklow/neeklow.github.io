@@ -12,12 +12,17 @@
 .backgroundImage {
   
   background-position: 77% 0%;
-  background-size: 400% auto;
+  /* background-size: 400% auto; */
+  transform: scale(1.1);
+
+  /* filter: brightness(60%) blur(10px); */
 }
+
 
 .blurOverlay {
 /* background-image: url('./assets/MainPortrait.png'), linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 50%); */
   background-position: 30% 10vh ;
+  
 
 }
 
@@ -70,9 +75,24 @@ section {
 
 
 
-  .mainTitle {
-    padding-left: 2vw;
-    text-align: center;
-    padding-top: calc(30vh);
-  }
+.introName {
+  padding-left: 2vw;
+  text-align: center;
+  padding-top: calc(30vh);
+}
+
+.cvLeft{
+font-size: 20px;
+vertical-align: top;
+padding-top: 20px;
+}
+
+.cvRight{
+font-size: 20px;
+width: 20vw;
+vertical-align: top;
+padding-top: 20px;
+}
+
+
 }

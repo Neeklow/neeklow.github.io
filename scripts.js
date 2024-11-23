@@ -124,6 +124,9 @@ let letter = 0;
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      
+
+
       // Add a delay before triggering scroll behavior
       setTimeout(() => {
         const sectionTitle = entry.target.getAttribute('data-title');
@@ -133,7 +136,28 @@ const observer = new IntersectionObserver((entries, observer) => {
         
         const activeButton = [...buttons].find(button => button.textContent === sectionTitle);
         if (activeButton) activeButton.classList.add('active');
-      }, 300); // Delay by 300ms for smoother transition
+
+
+      if(sectionTitle != "Hello!"){
+            const backgroundElement = document.querySelector('.backgroundImage');
+          backgroundElement.classList.add('blur'); // Add class to activate ::after transition
+
+        }
+        else{
+               const backgroundElement = document.querySelector('.backgroundImage');
+          backgroundElement.classList.remove('blur'); // Add class to activate ::after transition
+        }
+
+      }, 5); // Delay by 300ms for smoother transition
+
+
+
+      //fade background
+
+   
+
+
+
     }
   });
 }, { threshold: 0.5 });
