@@ -87,7 +87,7 @@ body::-webkit-scrollbar {
     transition: -webkit-mask-image 0.3s ease-out;
     /* Smooth transition */
   overflow: hidden;
-  Clip any overflow
+  /* Clip any overflow */
 }
 
 /* Add this to ensure the top is fully blurred */
@@ -119,6 +119,7 @@ main {
   display: flex;
   flex-direction: column;
   scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
   overflow-y: scroll;
   height: 100vh;
   width: 100vw;
@@ -136,6 +137,7 @@ main {
 /* Sections take full height of viewport */
 section {
   scroll-snap-align: center;
+  scroll-snap-stop: always; /* Ensure scrolling always snaps to the section */
   min-height: 100vh;
   width: 90vw;
   padding: 0;
@@ -144,6 +146,7 @@ section {
   justify-content: left;
   align-items: center;
   text-align: center;
+  
 }
 
 /* Title and subtitle */

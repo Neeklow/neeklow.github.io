@@ -121,39 +121,22 @@ let letter = 0;
 
   return letter;
 }
-
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // Apply the mask transition when the section is visible
-      const blurOverlay = document.querySelector('.blurOverlay');
-      const backgroundImage = document.querySelector('.backgroundImage');
-      
-      // Add active class to header button
-      const sectionTitle = entry.target.getAttribute('data-title');
-      const buttons = document.querySelectorAll('.headerButtons .btnClass');
-  
-        if(sectionTitle != "Hello!"){
-  
-          // blurOverlay.classList.add('transitionMask'); // Add the transition class
-           backgroundImage.classList.add('transitionMask'); // Add the transition class
-        }
-        else{
-          // blurOverlay.classList.remove('transitionMask'); // Add the transition class
-          backgroundImage.classList.remove('transitionMask'); // Add the transition class
-          
-        }
-      
-      buttons.forEach(button => button.classList.remove('active'));
-      
-      const activeButton = [...buttons].find(button => button.textContent === sectionTitle);
-      if (activeButton) activeButton.classList.add('active');
+      // Add a delay before triggering scroll behavior
+      setTimeout(() => {
+        const sectionTitle = entry.target.getAttribute('data-title');
+        const buttons = document.querySelectorAll('.headerButtons .btnClass');
+
+        buttons.forEach(button => button.classList.remove('active'));
+        
+        const activeButton = [...buttons].find(button => button.textContent === sectionTitle);
+        if (activeButton) activeButton.classList.add('active');
+      }, 300); // Delay by 300ms for smoother transition
     }
   });
 }, { threshold: 0.5 });
 
 const sections = document.querySelectorAll('section');
 sections.forEach(section => observer.observe(section));
-
-
-
