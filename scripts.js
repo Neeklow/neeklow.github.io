@@ -121,46 +121,130 @@ let letter = 0;
 
   return letter;
 }
+
+
+
+
+
+
+
+
+
+
+
+// IntersectionObserver to detect when a section is in view
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
+    const sectionTitle = entry.target.getAttribute('data-title');
+    const backgroundElement = document.querySelector('.backgroundImage');
+    
+    // If section is in view
     if (entry.isIntersecting) {
-      
-
-
-      // Add a delay before triggering scroll behavior
+      // Add a delay before triggering the scroll behavior
       setTimeout(() => {
-        const sectionTitle = entry.target.getAttribute('data-title');
+        // Update active button in the header
         const buttons = document.querySelectorAll('.headerButtons .btnClass');
-
         buttons.forEach(button => button.classList.remove('active'));
         
         const activeButton = [...buttons].find(button => button.textContent === sectionTitle);
         if (activeButton) activeButton.classList.add('active');
-
-
-      if(sectionTitle != "Hello!"){
-            const backgroundElement = document.querySelector('.backgroundImage');
-          backgroundElement.classList.add('blur'); // Add class to activate ::after transition
-
+        
+        // Apply blur effect to background based on section title
+        if (sectionTitle !== "Hello!") {
+          backgroundElement.classList.add('blur'); // Add blur effect
+        } else {
+          backgroundElement.classList.remove('blur'); // Remove blur effect
         }
-        else{
-               const backgroundElement = document.querySelector('.backgroundImage');
-          backgroundElement.classList.remove('blur'); // Add class to activate ::after transition
-        }
-
-      }, 5); // Delay by 300ms for smoother transition
-
-
-
-      //fade background
-
-   
-
-
-
+      }, 5); // Delay by 5ms for smoother transition
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.5 });  // Trigger when 50% of the section is visible
 
+// Observe each section
 const sections = document.querySelectorAll('section');
 sections.forEach(section => observer.observe(section));
+
+
+// Carousel-related scroll behavior
+let isScrolling = false;
+let isAtFirstProject = false;
+let isAtLastProject = false;
+const carouselContainer = document.querySelector('.verticalCarousel');
+const projectItems = document.querySelectorAll('.verticalCarousel .projectItem');
+
+// Detect when scroll reaches the first or last project
+carouselContainer.addEventListener('wheel', (e) => {
+  if (!isScrolling) return;
+
+  if (e.deltaY > 0) {
+    // Scrolling down
+    if (isAtLastProject) {
+      // Allow scrolling the whole section
+      disableCarouselScroll();
+    } else {
+      // Allow scrolling the carousel
+      scrollCarousel('down');
+    }
+  } else {
+    // Scrolling up
+    if (isAtFirstProject) {
+      // Allow scrolling the whole section
+      disableCarouselScroll();
+    } else {
+      // Allow scrolling the carousel
+      scrollCarousel('up');
+    }
+  }
+});
+
+// Enable carousel scrolling and apply blur to the carousel container
+function enableCarouselScroll() {
+  isScrolling = true;
+  updateBoundaryStates();
+  applyBlur(true);  // Apply blur effect when carousel is active
+}
+
+// Disable carousel scrolling (allow normal page scrolling) and remove blur
+function disableCarouselScroll() {
+  isScrolling = false;
+  updateBoundaryStates();
+  applyBlur(false);  // Remove blur effect when carousel is not active
+}
+
+// Scroll the carousel (up or down)
+function scrollCarousel(direction) {
+  const currentProject = document.querySelector('.verticalCarousel .projectItem.active');
+  let nextProject;
+
+  if (direction === 'down') {
+    nextProject = currentProject?.nextElementSibling || projectItems[projectItems.length - 1];
+  } else if (direction === 'up') {
+    nextProject = currentProject?.previousElementSibling || projectItems[0];
+  }
+
+  if (nextProject) {
+    currentProject?.classList.remove('active');
+    nextProject.classList.add('active');
+    nextProject.scrollIntoView({ behavior: 'smooth' });
+    updateBoundaryStates();
+  }
+}
+
+// Update boundary states (first/last project)
+function updateBoundaryStates() {
+  const firstProject = projectItems[0];
+  const lastProject = projectItems[projectItems.length - 1];
+  const currentProject = document.querySelector('.verticalCarousel .projectItem.active');
+
+  isAtFirstProject = currentProject === firstProject;
+  isAtLastProject = currentProject === lastProject;
+}
+
+// Apply or remove blur effect on the carousel container
+function applyBlur(enable) {
+  if (enable) {
+    carouselContainer.style.filter = 'blur(8px)';  // Apply blur effect
+  } else {
+    carouselContainer.style.filter = '';  // Remove blur effect
+  }
+}

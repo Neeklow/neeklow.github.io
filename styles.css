@@ -218,43 +218,97 @@ footer {
 
 
 
-.projectGallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  /* Responsive grid */
-  gap: 20px;
-  padding: 20px;
+
+
+
+
+
+
+/* Section styling */
+#myProjects {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  text-align: center;
 }
 
-.project {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+#myProjects h2 {
+  margin-bottom: 1rem;
 }
 
-.project img {
+/* Vertical carousel container */
+.verticalCarousel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 80vh;
+  /* Limit the height of the carousel */
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  /* Enable vertical snapping */
+  padding: 1rem;
+}
+
+
+.verticalCarousel {
+  overflow: scroll;
+  /* Enable scrolling */
+  -ms-overflow-style: none;
+  /* Hide scrollbar in Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Hide scrollbar in Firefox */
+}
+
+.verticalCarousel::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar in Chrome, Safari, and Opera */
+}
+/* Project items */
+.projectItem {
+  flex: 0 0 auto;
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  /* Ensures images maintain aspect ratio */
+  max-height: 550px;
+  overflow: hidden;
+  scroll-snap-align: center;
+  /* Snap each project to the center */
+  transition: transform 0.3s ease, height 0.3s ease;
+  position: relative;
+  cursor: pointer;
 }
 
-.projectDescription {
+.projectItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.projectItem:hover img {
+  transform: scale(1.05);
+  /* Slight zoom on hover */
+}
+
+/* Expand active item */
+.projectItem.active {
+  height: 300px;
+  /* Expand size */
+}
+
+.projectItem::after {
+  content: attr(data-description);
   position: absolute;
   bottom: 10px;
   left: 10px;
   right: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   color: white;
-  padding: 10px;
-  border-radius: 8px;
-  display: none;
-  /* Hide by default */
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.project:hover .projectDescription {
-  display: block;
-  /* Show description on hover */
+.projectItem:hover::after {
+  opacity: 1;
 }
