@@ -9,9 +9,7 @@ body {
   overflow-y: hidden;
   /* Hide vertical overflow */
   box-sizing: border-box;
-  /* Ensure padding doesn't affect width/height */
-  background-color: #9a27277d;
-    /* Set body background to blue */
+
 }
 
 /* Hide scrollbar but still allow scrolling */
