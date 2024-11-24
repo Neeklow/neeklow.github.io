@@ -28,6 +28,11 @@ body::-webkit-scrollbar {
   /* Hide scrollbar */
 }
 
+
+.toolbar-background-md {
+  background-color: rgba(0, 0, 0, 1);
+}
+
 /* Full-screen background container */
 .backgroundContainer {
   position: fixed;
