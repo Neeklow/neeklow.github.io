@@ -94,4 +94,60 @@ padding-top: 20px;
 }
 
 
+
+    .bio {
+      flex-direction: column;
+      width: 100vw;
+      /* Full width on mobile */
+      gap: 10px;
+      /* Reduced gap for mobile */
+    }
+  
+    .bioSection,
+    .journeySection {
+
+      width: 100%;
+      /* Full width for each section */
+      font-size: 20px;
+      /* Slightly smaller font size for mobile */
+    }
+  
+    /* Make the table cells more mobile-friendly */
+    .journeyTable td {
+      font-size: 18px;
+      /* Smaller font size */
+      padding: 8px;
+      /* Adjust padding */
+    }
+  
+    /* Adjust the width of the columns in the journey table for mobile */
+    .cvLeft,
+    .cvRight {
+      width: 100%;
+      /* Make the columns take up full width */
+      /* text-align: left; */
+      /* Align text to the left */
+      padding: 5px 10px;
+      /* Adjust padding */
+    }
+  
+    /* Make sure text in the table doesn't overflow */
+    .cvLeft,
+    .cvRight {
+      word-wrap: break-word;
+      width: 40%;
+    }
+
+    .cvLeft{
+          color: 002331;
+    }
+
+    .aboutMeTitle{
+      visibility: hidden;
+    }
+
+    
+    .biotext{
+  color: rgb(150, 159, 173);
+    }
 }

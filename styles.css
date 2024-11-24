@@ -28,7 +28,14 @@ body::-webkit-scrollbar {
   /* Hide scrollbar */
 }
 
-
+h2{
+  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    font-weight: 400;
+    font-size: 30px;
+    color: rgb(150, 159, 173);
+    padding-right: 10px;
+}
 
 /* Full-screen background container */
 .backgroundContainer {
@@ -57,6 +64,7 @@ body::-webkit-scrollbar {
   background-repeat: no-repeat;
   transition: filter 1s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
 
 
 .backgroundImage.blur {
@@ -198,14 +206,37 @@ footer {
 }
 
 
+.bio {
+  width: 82vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* Ensures the sections are spread out */
+  gap: 20px;
+  /* Adds space between sections */
+}
+
+.bioSection,
+.journeySection {
+  font-family: 'Poppins', sans-serif;
+      color: 002331;
+  width: 50%;
+  font-size: 30px;
+  text-align: left;
+  /* Set the width to a percentage to ensure both sections fit within the parent container */
+}
+
 .cvLeft{
   font-family: 'Poppins', sans-serif;
     margin: 0;
     font-weight: 400;
     font-size: 30px;
-    color: rgb(150, 159, 173);
+    /* color: rgb(150, 159, 173); */
+    color: 002331;
     text-align: right;
     padding-right: 10px;
+    vertical-align: top;
+    width:250px;
 }
 
 .cvRight{
@@ -213,11 +244,22 @@ footer {
     margin: 0;
     font-weight: 400;
     font-size: 30px;
-    color: 002331;
+    /* color: 002331;  */
+    color: rgb(150, 159, 173);
     text-align: left;
     padding-left: 10px;
 }
 
+.journeyTable {
+  width: 100%;  /* Ensure the table takes up the full width of its container */
+  /* table-layout: fixed; */
+  /* Ensures all columns are the same width */
+}
+
+.journeyTable td {
+  padding: 10px;/* Optional: Adds some padding inside the cells */
+ 
+}
 
 
 
