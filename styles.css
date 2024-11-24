@@ -9,7 +9,7 @@ body {
   overflow-y: hidden;
   /* Hide vertical overflow */
   box-sizing: border-box;
-
+/* background-color: #002331; */
 }
 
 /* Hide scrollbar but still allow scrolling */
