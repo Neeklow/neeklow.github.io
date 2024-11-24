@@ -1,4 +1,14 @@
 
+// set color navbar
+
+var windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
+
+//For status bar texts/icons color
+windowInsetsController.isAppearanceLightStatusBars = true
+
+//For navigation bar icons color
+windowInsetsController.isAppearanceLightNavigationBars = true
+
 window.onload=timedOutNameChange;
 let wordIterator;
 
