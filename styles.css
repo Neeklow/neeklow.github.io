@@ -29,9 +29,6 @@ body::-webkit-scrollbar {
 }
 
 
-.toolbar-background-md {
-  background-color: rgba(0, 0, 0, 1);
-}
 
 /* Full-screen background container */
 .backgroundContainer {
