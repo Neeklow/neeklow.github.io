@@ -2,12 +2,6 @@
 
 @media (max-width: 768px){
 
-.navbar {
-    background-color: transparent;
-    color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    /* Optional: adds subtle shadow for readability */
-  }
 
   footer{
       font-size: 7px;
