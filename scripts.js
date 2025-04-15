@@ -11,22 +11,52 @@ const navLinks = document.querySelectorAll('.nav-link');
 const revealElements = document.querySelectorAll('.reveal-element');
 const currentYearElement = document.getElementById('current-year');
 
+// Helper: Log missing elements
+function logMissingElement(name) {
+  console.error(`Element not found: ${name}`);
+}
+
 // Initialize on document load
+// Only initialize features if their required elements exist
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Set current year in footer
-  currentYearElement.textContent = new Date().getFullYear();
-  
-  // Initialize scroll animations
-  initScrollAnimations();
-  
-  // Initialize navigation
-  initNavigation();
-  
-  // Initialize form
-  initContactForm();
-  
-  // Initialize parallax effect
-  initParallaxEffect();
+  if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear();
+  } else {
+    logMissingElement('#current-year');
+  }
+
+  if (header) {
+    initScrollAnimations();
+  } else {
+    logMissingElement('header');
+  }
+
+  if (hamburger && navMenu && navLinks.length) {
+    initNavigation();
+  } else {
+    if (!hamburger) logMissingElement('.hamburger');
+    if (!navMenu) logMissingElement('.nav-menu');
+    if (!navLinks.length) logMissingElement('.nav-link');
+  }
+
+  if (revealElements.length) {
+    // Intersection observer is inside initScrollAnimations
+  } else {
+    logMissingElement('.reveal-element');
+  }
+
+  if (document.querySelector('.contact-form')) {
+    initContactForm();
+  } else {
+    logMissingElement('.contact-form');
+  }
+
+  if (document.querySelector('.hero-section')) {
+    initParallaxEffect();
+  } else {
+    logMissingElement('.hero-section');
+  }
 });
 
 // Main initialization function
@@ -139,7 +169,11 @@ function animateSectionElements(section) {
 // Name animation functions
 function randomizeName() {
   const name = document.getElementById('titleName');
-  
+  if (!name) {
+    logMissingElement('#titleName');
+    if (typeof wordIterator !== 'undefined') clearInterval(wordIterator);
+    return;
+  }
   if (name.innerHTML === targetNames[targetNameIndex]) {
     clearInterval(wordIterator);
     setTimeout(() => {
@@ -147,7 +181,6 @@ function randomizeName() {
       wordIterator = setInterval(randomizeName, 10);
     }, 2000);
   }
-  
   name.innerHTML = randomizeString(name.innerHTML);
 }
 
@@ -417,6 +450,10 @@ function handleKeyboardNavigation(e) {
 
 // Initialize Scroll Animations
 function initScrollAnimations() {
+  if (!header) {
+    logMissingElement('header');
+    return;
+  }
   // Intersection Observer for revealing elements on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -463,38 +500,31 @@ function initScrollAnimations() {
 
 // Initialize Navigation
 function initNavigation() {
-  // Toggle mobile menu
+  if (!hamburger || !navMenu || !navLinks.length) {
+    if (!hamburger) logMissingElement('.hamburger');
+    if (!navMenu) logMissingElement('.nav-menu');
+    if (!navLinks.length) logMissingElement('.nav-link');
+    return;
+  }
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
   });
-  
-  // Handle navigation link clicks
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      // Close mobile menu if open
       hamburger.classList.remove('active');
       navMenu.classList.remove('active');
-      
-      // Smooth scroll to section
       const targetId = link.getAttribute('href');
-      
-      if (targetId.startsWith('#')) {
+      if (targetId && targetId.startsWith('#')) {
         e.preventDefault();
         const targetSection = document.querySelector(targetId);
-        
         if (targetSection) {
-          const offsetTop = targetSection.offsetTop - 80; // Adjust for header height
-          window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-          });
+          const offsetTop = targetSection.offsetTop - 80;
+          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
         }
       }
     });
   });
-  
-  // Set initial active nav link
   updateActiveNavOnScroll();
 }
 
