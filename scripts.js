@@ -671,38 +671,38 @@ function initParallaxEffect() {
     const rotateY = moveX / 50;
 
     // Move background slightly
-    heroBackground.style.transform = `translate3d(${moveX * 0.05}px, ${moveY * 0.05}px, 0)`;
+    // heroBackground.style.transform = `translate3d(${moveX * 0.05}px, ${moveY * 0.05}px, 0)`;
 
     // Increase the blur overlay movement factor significantly
-    blurOverlay.style.transform = `translate3d(${moveX * 0.1}px, ${moveY * 0.25}px, 0) translateX(-50%)`;
+    blurOverlay.style.transform = `translate3d(${moveX * -0.5}px, ${moveY * -0.5}px, 0) translateX(-50%)`;
     
     // Move content
-    heroContent.style.transform = `translate3d(${moveX * 0.1}px, ${moveY * 0.1}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    // heroContent.style.transform = `translate3d(${moveX * 0.1}px, ${moveY * 0.1}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
     // Move particles with different depth factors
-    particles.forEach((particle, index) => {
-      const originalPos = particleOriginalPositions[index];
-      const depthFactor = 0.15 + (index * 0.02); // Different depth for each particle
+    // particles.forEach((particle, index) => {
+    //   const originalPos = particleOriginalPositions[index];
+    //   const depthFactor = 0.15 + (index * 0.02); // Different depth for each particle
       
-      let transformX = moveX * depthFactor;
-      let transformY = moveY * depthFactor;
+    //   let transformX = moveX * depthFactor;
+    //   let transformY = moveY * depthFactor;
 
-      // If particle has right positioning, adjust X transform
-      if (originalPos.right !== null) {
-        transformX *= -1;
-      }
+    //   // If particle has right positioning, adjust X transform
+    //   if (originalPos.right !== null) {
+    //     transformX *= -1;
+    //   }
 
-      particle.style.transform = `translate3d(${transformX}px, ${transformY}px, 0)`;
-    });
+    //   particle.style.transform = `translate3d(${transformX}px, ${transformY}px, 0)`;
+    // });
   });
 
   // Reset positions when mouse leaves
   heroSection.addEventListener('mouseleave', () => {
-    heroBackground.style.transform = 'translate3d(0, 0, 0)';
+    // heroBackground.style.transform = 'translate3d(0, 0, 0)';
     blurOverlay.style.transform = 'translateX(-50%)';
-    heroContent.style.transform = 'translate3d(0, 0, 0) rotateX(0) rotateY(0)';
-    particles.forEach(particle => {
-      particle.style.transform = 'translate3d(0, 0, 0)';
-    });
+    // heroContent.style.transform = 'translate3d(0, 0, 0) rotateX(0) rotateY(0)';
+    // particles.forEach(particle => {
+    //   particle.style.transform = 'translate3d(0, 0, 0)';
+    // });
   });
 }
