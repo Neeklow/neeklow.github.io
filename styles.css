@@ -180,7 +180,7 @@ h4 {
 }
 
 /* Header and Navigation */
-header {
+/* header {
   position: fixed;
   top: 0;
   left: 0;
@@ -195,7 +195,7 @@ header {
   align-items: center;
   padding: 0 var(--spacing-md);
   transition: transform var(--transition-medium), background-color var(--transition-medium);
-}
+} */
 
 .logo {
   display: flex;
