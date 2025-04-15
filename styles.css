@@ -1217,6 +1217,10 @@ footer {
   .title-container {
     align-items: center;
   }
+
+  .hero-background {
+    background-position: 77% center; /* Shift left by 30% (50% - 30% = 20%) */
+  }
 }
 
 @media (max-width: 576px) {
