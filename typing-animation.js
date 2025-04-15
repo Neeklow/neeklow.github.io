@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const boldText = document.createElement('span');
     boldText.className = 'bold';
     boldText.style.fontFamily = "'Poppins', sans-serif";
-    boldText.style.fontSize = '100px';
     boldText.style.fontWeight = '400';
     boldText.style.margin = '0';
     boldText.style.color = '#002331';
@@ -87,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Reapply styles for bold text since textContent resets them
                     if (element === boldText) {
                         element.style.fontFamily = "'Poppins', sans-serif";
-                        element.style.fontSize = '100px';
                         element.style.fontWeight = '400';
                         element.style.margin = '0';
                         element.style.color = '#002331';

@@ -458,7 +458,7 @@ section::before {
   display: block;
   color: #002331;
   font-weight: 700;
-  font-size: clamp(32px, 8vw, 100px);
+  font-size: clamp(32px, 6.5vw, 100px);
   line-height: 1;
 }
 
@@ -1190,6 +1190,7 @@ footer {
 @media (max-width: 1400px) {
   .hero-content {
     left: -15vw;
+    
   }
 }
 
@@ -1532,3 +1533,11 @@ footer {
     text-align: center;
   }
 }
+
+/* Additional font size adjustment for very small screens */
+@media (max-width: 420px) {
+  .hero-section h1 .bold {
+    font-size: clamp(50px, 15vw, 100px); /* Lower minimum font size */
+  }
+}
+
