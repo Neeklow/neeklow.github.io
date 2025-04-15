@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
     const blurThreshold = 100; // Amount of scroll before blur starts
     const maxBlur = 10; // Maximum blur amount in pixels
+    const SCALE_SCROLL_RANGE = 500; // Scroll distance for scaling effect
 
     window.addEventListener('scroll', () => {
         const scrollPosition = window.scrollY;
@@ -13,6 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             heroBackground.classList.remove('blur');
         }
+
+        // Handle hero background scaling
+        const scaleProgress = Math.min(1, scrollPosition / SCALE_SCROLL_RANGE);
+        const targetScale = 1 + scaleProgress * 0.01; // Scale from 1 to 1.1
+        heroBackground.style.transform = `scale(${targetScale})`;
 
         // Handle section transitions
         sections.forEach(section => {
