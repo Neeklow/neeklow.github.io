@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Handle hero background scaling
         const scaleProgress = Math.min(1, scrollPosition / SCALE_SCROLL_RANGE);
-        const targetScale = 1 + scaleProgress * 0.01; // Scale from 1 to 1.1
+        const targetScale = 1.1 + scaleProgress * 0.01; // Scale from 1.1 to 1.2
         heroBackground.style.transform = `scale(${targetScale})`;
 
         // Handle section transitions

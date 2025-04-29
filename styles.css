@@ -393,7 +393,8 @@ section::before {
   background-position: center;
   background-attachment: fixed;
   z-index: -2;
-  transition: filter 0.3s ease;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  transform: scale(1.1); /* Set initial scale */
 }
 
 .hero-background.blur {
