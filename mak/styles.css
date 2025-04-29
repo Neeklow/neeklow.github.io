@@ -22,6 +22,35 @@
     object-fit: cover;
   }
   
+  .desktop .project-title {
+    position: absolute;
+    width: 1164px;
+    top: 580px;
+    left: 138px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 64px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-align: left;
+    margin: 0;
+  }
+  
+  .desktop .project-subtitle {
+    position: absolute;
+    width: 1164px;
+    top: 700px;
+    left: 138px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+  
   .desktop .superflux {
     width: 571px;
     left: 731px;
@@ -70,14 +99,14 @@
   .desktop .superflux-invocation {
     position: absolute;
     width: 926px;
-    top: 680px;
+    top: 800px;
     left: 257px;
     font-family: "Poppins-Regular", Helvetica;
     font-weight: 400;
     color: #ffffff;
     font-size: 20px;
     letter-spacing: 0;
-    line-height: normal;
+    line-height: 1.6;
   }
   
   .desktop .text-wrapper {
