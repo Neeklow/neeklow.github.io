@@ -210,4 +210,172 @@
   left: 737px;
   object-fit: cover;
 }
+
+.project-showcase {
+  background-color: var(--color-background);
+  display: flex;
+  padding: 76px 80px 231px;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+}
+
+.content-container {
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+/* Header */
+.header-image {
+  aspect-ratio: 2.4;
+  width: 100%;
+}
+
+/* Project Sections */
+.project-section {
+  margin-top: var(--section-spacing);
+}
+
+.section-content {
+  gap: var(--spacing-unit);
+  display: flex;
+}
+
+/* Text Columns */
+.text-column {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 56%;
+}
+
+.project-description {
+  color: var(--color-text);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.project-title {
+  font-weight: 700;
+}
+
+/* Image Columns */
+.image-column {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 44%;
+  margin-left: var(--spacing-unit);
+}
+
+.wide-column {
+  width: 57%;
+}
+
+.portrait-image {
+  aspect-ratio: 0.68;
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* Gallery Section */
+.gallery-section {
+  margin-top: var(--section-spacing);
+}
+
+.gallery-grid {
+  gap: var(--spacing-unit);
+  display: flex;
+}
+
+.gallery-column {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 33.333%;
+}
+
+.gallery-column:not(:first-child) {
+  margin-left: var(--spacing-unit);
+}
+
+.gallery-image {
+  aspect-ratio: 0.56;
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* Stacked Images */
+.stacked-images {
+  flex-grow: 1;
+}
+
+.wide-image {
+  aspect-ratio: 1.79;
+  width: 100%;
+}
+
+.wide-image:not(:first-child) {
+  margin-top: 21px;
+}
+
+/* Footer */
+.footer-image {
+  aspect-ratio: 1.9;
+  width: 100%;
+  margin-top: var(--section-spacing);
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .project-showcase {
+    padding: 76px 20px 100px;
+  }
+
+  .content-container {
+    max-width: 100%;
+  }
+
+  .project-section {
+    margin-top: 40px;
+  }
+
+  .section-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .text-column,
+  .image-column,
+  .wide-column {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .project-description {
+    margin-top: 40px;
+  }
+
+  .portrait-image,
+  .gallery-image,
+  .stacked-images {
+    margin-top: 40px;
+  }
+
+  .gallery-grid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .gallery-column {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .footer-image {
+    margin-top: 40px;
+  }
+}
  
