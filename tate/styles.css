@@ -42,4 +42,80 @@
   opacity: 0.9;
 }
 
+.desktop .project-description {
+  position: absolute;
+  width: 926px;
+  top: 800px;
+  left: 138px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+.desktop .tate-main {
+  position: absolute;
+  width: 1164px;
+  height: 507px;
+  top: 20px;
+  left: 138px;
+  object-fit: cover;
+}
+
+.desktop .tate-screen {
+  position: absolute;
+  width: 571px;
+  height: 321px;
+  top: 1372px;
+  left: 731px;
+  object-fit: cover;
+}
+
+.desktop .tate-screen-2 {
+  position: absolute;
+  width: 390px;
+  height: 487px;
+  top: 865px;
+  left: 917px;
+  object-fit: cover;
+}
+
+.desktop .tate-vr {
+  position: absolute;
+  width: 566px;
+  height: 318px;
+  top: 1542px;
+  left: 730px;
+  object-fit: cover;
+}
+
+.desktop .tate-2 {
+  position: absolute;
+  width: 572px;
+  height: 318px;
+  top: 1542px;
+  left: 138px;
+  object-fit: cover;
+}
+
+.desktop .tate-vid {
+  position: absolute;
+  width: 571px;
+  height: 318px;
+  top: 2387px;
+  left: 139px;
+  object-fit: cover;
+}
+
+.desktop .tate-vid-2 {
+  position: absolute;
+  width: 570px;
+  height: 317px;
+  top: 2726px;
+  left: 140px;
+  object-fit: cover;
+}
+
 // ... rest of the existing styles ... 
