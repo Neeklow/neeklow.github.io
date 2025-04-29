@@ -1,132 +1,213 @@
 .desktop {
-    background-color: #000000;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-  
+  background-color: #000000;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.desktop .div {
+  background-color: #000000;
+  width: 100%;
+  max-width: 1440px;
+  position: relative;
+  padding: 2rem;
+}
+
+/* Hero Image */
+.desktop .hero-image {
+  width: 100%;
+  max-width: 1164px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Project Info */
+.desktop .project-info {
+  margin: 4rem auto;
+  max-width: 800px;
+  color: #ffffff;
+  font-family: "Poppins", Helvetica;
+}
+
+.desktop .project-info h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.desktop .project-info .role,
+.desktop .project-info .location {
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+}
+
+.desktop .project-info .description {
+  margin-top: 2rem;
+}
+
+.desktop .project-info .description p {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* Silhouette Grid */
+.desktop .silhouette-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 4rem auto;
+  max-width: 1164px;
+}
+
+.desktop .silhouette-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Technical Info */
+.desktop .technical-info {
+  margin: 4rem auto;
+  max-width: 800px;
+  color: #ffffff;
+  font-family: "Poppins", Helvetica;
+}
+
+.desktop .technical-info p {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* Development Images */
+.desktop .development-images {
+  margin: 4rem auto;
+  max-width: 1164px;
+}
+
+.desktop .development-images .interface-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.desktop .development-images .video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.desktop .development-images .video-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* VR Simulation */
+.desktop .vr-simulation {
+  margin: 4rem auto;
+  max-width: 800px;
+  color: #ffffff;
+  font-family: "Poppins", Helvetica;
+}
+
+.desktop .vr-simulation p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
   .desktop .div {
-    background-color: #000000;
-    width: 1440px;
-    height: 3063px;
-    position: relative;
+    padding: 1.5rem;
   }
-  
-  .desktop .tate-draw-british {
-    width: 1164px;
-    height: 656px;
-    top: 20px;
-    left: 138px;
-    position: absolute;
-    object-fit: cover;
+
+  .desktop .silhouette-grid,
+  .desktop .development-images .video-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .desktop .tate-draw {
-    width: 592px;
-    height: 656px;
-    top: 2387px;
-    left: 730px;
-    position: absolute;
-    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .desktop .div {
+    padding: 1rem;
   }
-  
-  .desktop .tate-draw-hand {
-    position: absolute;
-    width: 390px;
-    height: 487px;
-    top: 865px;
-    left: 917px;
-    object-fit: cover;
+
+  .desktop .project-info,
+  .desktop .technical-info,
+  .desktop .vr-simulation {
+    padding: 0 1rem;
   }
-  
-  .desktop .the-workers-tate {
-    position: absolute;
-    width: 710px;
-    top: 864px;
-    left: 118px;
-    font-family: "Poppins-Regular", Helvetica;
-    font-weight: 400;
-    color: #ffffff;
+
+  .desktop .silhouette-grid,
+  .desktop .development-images .video-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .desktop .project-info h1 {
     font-size: 20px;
-    letter-spacing: 0;
-    line-height: normal;
   }
-  
-  .desktop .after-the-success-of {
-    position: absolute;
-    width: 1158px;
-    top: 2058px;
-    left: 138px;
-    font-family: "Poppins-Regular", Helvetica;
-    font-weight: 400;
-    color: #ffffff;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: normal;
+
+  .desktop .project-info .description p,
+  .desktop .technical-info p,
+  .desktop .vr-simulation p {
+    font-size: 16px;
   }
-  
-  .desktop .tate-draw-screen {
-    width: 566px;
-    height: 318px;
-    top: 1542px;
-    left: 730px;
-    position: absolute;
-    object-fit: cover;
-  }
-  
-  .desktop .tate-draw-modern {
-    width: 572px;
-    height: 318px;
-    top: 1542px;
-    left: 138px;
-    position: absolute;
-    object-fit: cover;
-  }
-  
-  .desktop .tate-draw-d {
-    width: 571px;
-    height: 318px;
-    top: 2387px;
-    left: 139px;
-    position: absolute;
-    object-fit: cover;
-  }
-  
-  .desktop .img {
-    width: 570px;
-    height: 317px;
-    top: 2726px;
-    left: 140px;
-    position: absolute;
-    object-fit: cover;
-  }
-  
-  .desktop .project-title {
-    position: absolute;
-    width: 1164px;
-    top: 580px;
-    left: 138px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    color: #ffffff;
-    font-size: 64px;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    text-align: left;
-    margin: 0;
-  }
-  
-  .desktop .project-subtitle {
-    position: absolute;
-    width: 1164px;
-    top: 700px;
-    left: 138px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    color: #ffffff;
-    font-size: 20px;
-    letter-spacing: 0.02em;
-    line-height: 1.5;
-    opacity: 0.9;
-  }
+}
+
+.desktop .the-workers-NG {
+  position: absolute;
+  width: 571px;
+  top: 697px;
+  left: 139px;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .built-in-unity-the {
+  position: absolute;
+  width: 453px;
+  top: 2224px;
+  left: 139px;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .image {
+  position: absolute;
+  width: 1164px;
+  height: 485px;
+  top: 22px;
+  left: 138px;
+}
+
+.desktop .img {
+  position: absolute;
+  width: 572px;
+  height: 319px;
+  top: 2224px;
+  left: 737px;
+  object-fit: cover;
+}
+
+.desktop .image-2 {
+  position: absolute;
+  width: 572px;
+  height: 320px;
+  top: 2564px;
+  left: 737px;
+  object-fit: cover;
+}
+ 
