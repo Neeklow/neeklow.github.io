@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     logMissingElement('.hero-section');
   }
+
+  // Initialize email obfuscation
+  initDelayedEmail();
 });
 
 // Main initialization function
@@ -705,4 +708,44 @@ function initParallaxEffect() {
     //   particle.style.transform = 'translate3d(0, 0, 0)';
     // });
   });
+}
+
+// Delayed email initialization with user interaction detection
+function initDelayedEmail() {
+  function revealOnInteraction() {
+    document.removeEventListener('mousemove', revealOnInteraction);
+    document.removeEventListener('keydown', revealOnInteraction);
+    initEmailObfuscation();
+  }
+
+  document.addEventListener('mousemove', revealOnInteraction);
+  document.addEventListener('keydown', revealOnInteraction);
+}
+
+// Email obfuscation function
+function initEmailObfuscation() {
+  const emailElement = document.getElementById('email-display');
+  if (!emailElement) return;
+  
+  // Obfuscated email parts (reversed and encoded)
+  const user = 'tcatnoc+olleh'.split('').reverse().join('');
+  const domain = 'moc.olkeen'.split('').reverse().join('');
+  const email = user + '@' + domain;
+  
+  // Create clickable email link
+  const emailLink = document.createElement('a');
+  emailLink.href = 'mailto:' + email;
+  emailLink.textContent = email;
+  emailLink.style.color = 'inherit';
+  emailLink.style.textDecoration = 'none';
+  emailLink.addEventListener('mouseenter', function() {
+    this.style.textDecoration = 'underline';
+  });
+  emailLink.addEventListener('mouseleave', function() {
+    this.style.textDecoration = 'none';
+  });
+  
+  // Replace the loading text with the email link
+  emailElement.innerHTML = '';
+  emailElement.appendChild(emailLink);
 }

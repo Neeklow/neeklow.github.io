@@ -971,6 +971,7 @@ section::before {
 .contact-section {
   position: relative;
   z-index: 2;
+  padding: var(--spacing-xl) 0;
 }
 
 .contact-section::before {
@@ -983,22 +984,31 @@ section::before {
   transition: all 0.3s ease;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-lg);
+.contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-content p {
+  font-size: 1.1rem;
+  color: var(--light-gray);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.7;
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  align-items: center;
 }
 
-.contact-info p {
-  font-size: 1.1rem;
-  color: var(--light-gray);
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
 }
 
 .contact-details {
@@ -1012,11 +1022,21 @@ section::before {
   align-items: center;
   gap: var(--spacing-sm);
   color: var(--pure-white);
+  justify-content: center;
 }
 
 .contact-item svg {
   color: var(--secondary-color);
   flex-shrink: 0;
+}
+
+.contact-item a {
+  color: inherit;
+  transition: color var(--transition-medium);
+}
+
+.contact-item a:hover {
+  color: var(--secondary-color);
 }
 
 .social-links {
@@ -1542,7 +1562,72 @@ footer {
 /* Additional font size adjustment for very small screens */
 @media (max-width: 420px) {
   .hero-section h1 .bold {
-    font-size: clamp(50px, 15vw, 100px); /* Lower minimum font size */
+    font-size: 30px;
+  }
+}
+
+/* PDF Viewer Section */
+.portfolio-viewer-section {
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.portfolio-viewer-section .section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg); /* Increased bottom margin */
+  color: var(--pure-white);
+  font-size: 2rem; /* Adjusted font size */
+  font-family: var(--font-secondary);
+}
+
+.pdf-iframe-container {
+  max-width: 900px; /* Or your preferred max-width */
+  margin: 0 auto; /* Centers the container */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg); /* Larger border radius */
+  overflow: hidden; /* Ensures iframe respects border-radius */
+  box-shadow: var(--shadow-large); /* Added a more prominent shadow */
+  background-color: rgba(255, 255, 255, 0.05); /* Slight background tint */
+}
+
+.pdf-iframe {
+  display: block; /* Removes extra space below iframe */
+  width: 100%;
+  border: none; /* Remove default iframe border if any */
+}
+
+/* Contact Section Responsive */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  .contact-content {
+    text-align: left;
+  }
+  
+  .contact-content p {
+    font-size: 1rem;
+  }
+  
+  .contact-item {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .contact-item {
+    gap: var(--spacing-xs);
+  }
+  
+  .contact-item svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
